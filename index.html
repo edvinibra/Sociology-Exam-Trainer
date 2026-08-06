@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sociology Exam Trainer</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div id="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-circle">S</div>
+
+            <div>
+                <h2>Sociology</h2>
+                <span>Exam Trainer</span>
+            </div>
+        </div>
+
+        <nav>
+
+            <button class="nav-btn active" data-page="dashboard">
+                🏠 Dashboard
+            </button>
+
+            <button class="nav-btn" data-page="practice">
+                📝 Practice
+            </button>
+
+            <button class="nav-btn" data-page="flashcards">
+                🧠 Flashcards
+            </button>
+
+            <button class="nav-btn" data-page="exam">
+                ⏱ Exam Mode
+            </button>
+
+            <button class="nav-btn" data-page="progress">
+                📊 Progress
+            </button>
+
+            <button class="nav-btn" data-page="settings">
+                ⚙ Settings
+            </button>
+
+        </nav>
+
+    </aside>
+
+    <!-- Main -->
+    <main class="content">
+
+        <header class="topbar">
+
+            <div>
+
+                <h1 id="page-title">
+                    Dashboard
+                </h1>
+
+                <p>
+                    Förbered dig inför sociologitentan.
+                </p>
+
+            </div>
+
+            <button id="themeToggle">
+                🌙
+            </button>
+
+        </header>
+
+        <!-- DASHBOARD -->
+
+        <section class="page active" id="dashboard">
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <h3>Totala frågor</h3>
+
+                    <p id="totalQuestions">
+                        0
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Besvarade</h3>
+
+                    <p id="answeredQuestions">
+                        0
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Rätt</h3>
+
+                    <p id="correctAnswers">
+                        0
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Accuracy</h3>
+
+                    <p id="accuracy">
+                        0%
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="welcome">
+
+                <h2>Välkommen 👋</h2>
+
+                <p>
+
+                    Sociology Exam Trainer hjälper dig träna inför tentan
+                    med flashcards, quiz, gamla frågor och ett riktigt
+                    exam mode.
+
+                </p>
+
+                <button id="startPractice">
+                    Starta träning
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- PRACTICE -->
+
+        <section class="page" id="practice">
+
+            <div class="question-card">
+
+                <div id="questionCategory" class="badge">
+                    Sociologi
+                </div>
+
+                <h2 id="questionTitle">
+                    Laddar frågor...
+                </h2>
+
+                <div id="answers" class="answers">
+
+                </div>
+
+                <div class="practice-buttons">
+
+                    <button id="nextQuestion">
+                        Nästa fråga →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- FLASHCARDS -->
+
+        <section class="page" id="flashcards">
+
+            <div class="flashcard" id="flashcard">
+
+                <div class="front">
+
+                    Klicka för att visa svar
+
+                </div>
+
+            </div>
+
+            <button id="nextFlashcard">
+                Nästa kort
+            </button>
+
+        </section>
+
+        <!-- EXAM -->
+
+        <section class="page" id="exam">
+
+            <div class="exam-container">
+
+                <div class="timer">
+
+                    Tid kvar:
+                    <span id="timer">
+                        60:00
+                    </span>
+
+                </div>
+
+                <button id="startExam">
+                    Starta Exam Mode
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- PROGRESS -->
+
+        <section class="page" id="progress">
+
+            <div class="progress-card">
+
+                <h2>Statistik</h2>
+
+                <canvas id="progressChart"></canvas>
+
+            </div>
+
+        </section>
+
+        <!-- SETTINGS -->
+
+        <section class="page" id="settings">
+
+            <div class="settings-card">
+
+                <h2>Inställningar</h2>
+
+                <label>
+
+                    <input
+                        type="checkbox"
+                        id="shuffleQuestions"
+                    >
+
+                    Blanda frågor
+
+                </label>
+
+                <label>
+
+                    <input
+                        type="checkbox"
+                        id="darkMode"
+                    >
+
+                    Mörkt läge
+
+                </label>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="questions.js"></script>
+<script src="flashcards.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
