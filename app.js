@@ -83,6 +83,10 @@ function loadQuestion(){
 
     answers.innerHTML = "";
 
+hasAnswered = false;
+console.log("loadQuestion", hasAnswered);
+
+
     q.answers.forEach((answer,index)=>{
 
         const div =
@@ -102,7 +106,9 @@ function loadQuestion(){
 
 function checkAnswer(choice){
 console.log("checkAnswer körs", choice);
-    if(hasAnswered) return;
+    console.log("before check", hasAnswered);
+
+if(hasAnswered) return;
 
     hasAnswered = true;
 
