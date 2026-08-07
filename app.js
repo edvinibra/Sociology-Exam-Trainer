@@ -4,7 +4,7 @@
 // ===============================
 
 let currentQuestion = 0;
-
+let hasAnswered = false;
 const stats = {
     answered: 0,
     correct: 0
@@ -102,20 +102,33 @@ function loadQuestion(){
 
 function checkAnswer(choice){
 
+    if(hasAnswered) return;
+
+    hasAnswered = true;
+
     const q = questions[currentQuestion];
+
+    const answers =
+        document.querySelectorAll(".answer");
 
     stats.answered++;
 
+    answers.forEach((answer,index)=>{
+
+        if(index===q.correct){
+            answer.classList.add("correct");
+        }
+
+        if(index===choice && choice!==q.correct){
+            answer.classList.add("wrong");
+        }
+
+        answer.style.pointerEvents="none";
+
+    });
+
     if(choice===q.correct){
-
         stats.correct++;
-
-        alert("✅ Rätt!");
-
-    }else{
-
-        alert("❌ Fel!\n\nRätt svar:\n"+q.answers[q.correct]);
-
     }
 
     saveStats();
@@ -138,7 +151,7 @@ if(nextQuestionButton){
             currentQuestion=0;
 
         }
-
+hasAnswered = false;
         loadQuestion();
 
     }
