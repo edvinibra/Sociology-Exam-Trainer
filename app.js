@@ -101,7 +101,7 @@ function loadQuestion(){
 }
 
 function checkAnswer(choice){
-
+console.log("checkAnswer körs", choice);
     if(hasAnswered) return;
 
     hasAnswered = true;
